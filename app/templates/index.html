@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <title>{{ title }}</title>
@@ -7,79 +7,75 @@
 </head>
 <body>
 
-<!-- Hero -->
-<section id="hero">
-  <h1>Cloud / DevOps Portfolio</h1>
-  <p>AWS EC2 · Docker · Nginx · FastAPI · GitHub Actions</p>
-</section>
+<div class="container">
 
-<!-- About -->
-<section id="about">
-  <h2>About This Project</h2>
-  <p>
-    실제 운영 환경을 가정하여 AWS EC2에 웹 서비스를 배포하고,
-    Docker와 GitHub Actions를 이용해 CI/CD 파이프라인을 구축했습니다.
-  </p>
-</section>
+  <header>
+    <h1>Cloud / DevOps Portfolio</h1>
+    <p class="subtitle">
+      AWS EC2 · Docker · Nginx · FastAPI · GitHub Actions
+    </p>
+  </header>
 
-<!-- Tech Stack -->
-<section id="stack">
-  <h2>Tech Stack</h2>
-  <ul>
-    <li>AWS EC2 (Amazon Linux)</li>
-    <li>Docker / Docker Compose</li>
-    <li>Nginx (Reverse Proxy)</li>
-    <li>FastAPI</li>
-    <li>GitHub Actions (CI/CD)</li>
-  </ul>
-</section>
+  <section>
+    <h2>About This Project</h2>
+    <p>
+      AWS EC2 환경에서 Docker 기반 웹 서비스를 구축하고  
+      GitHub Actions를 통해 CI/CD 파이프라인을 구성한 개인 포트폴리오입니다.
+    </p>
+  </section>
 
-<!-- Architecture -->
-<section id="architecture">
-  <h2>Architecture</h2>
-  <img src="/static/architecture.png" alt="Architecture Diagram">
-  <p>
-    Nginx가 80 포트에서 요청을 받아 FastAPI 컨테이너로 전달합니다.
-    전체 서비스는 Docker Compose로 관리됩니다.
-  </p>
-</section>
+  <section>
+    <h2>Tech Stack</h2>
+    <ul>
+      <li>AWS EC2 (Amazon Linux)</li>
+      <li>Docker / Docker Compose</li>
+      <li>Nginx (Reverse Proxy)</li>
+      <li>FastAPI</li>
+      <li>GitHub Actions</li>
+    </ul>
+  </section>
 
-<!-- CI/CD -->
-<section id="cicd">
-  <h2>CI/CD Pipeline</h2>
-  <ol>
-    <li>GitHub main 브랜치에 push</li>
-    <li>GitHub Actions 트리거</li>
-    <li>EC2 서버로 SSH 접속</li>
-    <li>docker-compose pull & up</li>
-  </ol>
-</section>
+  <section>
+    <h2>Architecture</h2>
+    <p>
+      Nginx가 80 포트에서 요청을 수신하고 FastAPI 컨테이너로 전달합니다.
+    </p>
+       <img src="/static/architecture.png"> 
+  </section>
 
-<!-- Logs -->
-<section id="logs">
-  <h2>Logs & Monitoring</h2>
-  <p>
-    Nginx와 FastAPI 로그를 통해 요청 흐름과 에러를 추적할 수 있습니다.
-  </p>
-  <code>
-    docker-compose logs nginx<br>
-    docker-compose logs api
-  </code>
-</section>
+  <section>
+    <h2>CI/CD Pipeline</h2>
+    <ol>
+      <li>GitHub main 브랜치에 코드 push</li>
+      <li>GitHub Actions 자동 실행</li>
+      <li>EC2 서버 SSH 접속</li>
+      <li>Docker Compose로 서비스 재배포</li>
+    </ol>
+  </section>
 
-<!-- Troubleshooting -->
-<section id="troubleshooting">
-  <h2>Troubleshooting</h2>
-  <ul>
-    <li>80 포트 충돌 → 기존 프로세스 확인 후 컨테이너화</li>
-    <li>StaticFiles 경로 오류 → Docker COPY 경로 수정</li>
-    <li>ModuleNotFoundError → uvicorn 실행 경로 수정</li>
-  </ul>
-</section>
+  <section>
+    <h2>Logs & Monitoring</h2>
+    <p>Nginx 및 FastAPI 로그를 통해 요청 흐름과 에러를 추적합니다.</p>
+    <pre>
+docker-compose logs nginx
+docker-compose logs api
+    </pre>
+  </section>
 
-<footer>
-  <p>© 2026 Portfolio Project</p>
-</footer>
+  <section>
+    <h2>Troubleshooting</h2>
+    <ul>
+      <li>80 포트 충돌 → 기존 프로세스 종료 후 컨테이너화</li>
+      <li>StaticFiles 경로 오류 → Docker COPY 경로 수정</li>
+      <li>ModuleNotFoundError → uvicorn 실행 경로 수정</li>
+    </ul>
+  </section>
+
+  <footer>
+    © 2026 Portfolio Project
+  </footer>
+
+</div>
 
 </body>
 </html>
